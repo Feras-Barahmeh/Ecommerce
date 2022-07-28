@@ -1,51 +1,65 @@
-    <?php
-        session_start(); // Resumption
+<?php
+// Start Global defination
+    ob_start();
+    session_start(); // Resumption
+// End Global defination
 
-    // Start Dashboard functions
+
+// Start Fork Fucntions
+    function ulUsersStructer($result) { ?>
+
+        <ul class="list-unstyled latest-users">
+            <li>
+                <span class='user'>
+                    <?php echo $result['userName'] ?>
+                </span>
+                <div class="btn">
+                    <a href="members.php?actionInMember=edit&userID=<?php echo $result['userID']?>"  class ='edit'><i class="fa fa-edit"></i>Edit</a>
+                    <?php setActivateBtn($result,'members.php', 'actionInMember', 'activate', 'userID','regStatus' ) ?>
+                </div>
+            </li>
+        </ul>
+        <?php
+    }
+
+
+    function ulItemStructer($result) { ?>
+            <ul class="list-unstyled latest-users">
+                <li>
+                    <span class='user'>
+                        <?php echo $result['nameItem'] ?>
+                    </span>
+                    <div class="btn-dashboed">
+                        <a href="items.php?actionInItems=edit&itemID=<?php echo $result['itemID']?>"  class ='edit-item'><i class="fa fa-edit"></i>Edit</a>
+                        <a href="comments.php?actionInComments=specific_comment&itemID=<?php echo $result['itemID']?>"><i class="fa-solid fa-comment"></i> Comments</a>
+                        <?php setActivateBtn($result, 'items.php', 'actionInItems', 'approve', 'itemID', 'approve') ?>
+                    </div>
+                </li>
+            </ul>
+        <?php
+    }
+// End Fork Fucntions
 
 // Main fucntion in dashboard
     function printPanelBody($Item='*', $table, $order, $numItem = 5, $to='member') {
-        if($to=='member') {
-            $results = feedBack($Item, $table, $order, 'DESC', $numItem);
-            if(!empty($results)) {
-                foreach ($results as $result) {?>
-                    <ul class="list-unstyled latest-users">
-                        <li>
-                            <span class='user'>
-                                <?php echo $result['userName'] ?>
-                            </span>
-                            <div class="btn">
-                                <a href="members.php?actionInMember=edit&userID=<?php echo $result['userID']?>"  class ='edit'><i class="fa fa-edit"></i>Edit</a>
-                                <?php setActivateBtn($result,'members.php', 'actionInMember', 'activate', 'userID','regStatus' ) ?>
-                            </div>
-                        </li>
-                    </ul>
-                    <?php
+        $results = getTable('*', $table, NULL, $order, 'DESC', 'fetchAll', "LIMIT " . $numItem);
+        if($to =='member') {
+                if(!empty($results)) {
+                    foreach ($results as $result) {
+                        ulUsersStructer($result);
+                    }
+                } else {
+                    echo "No Requerds To show";
                 }
-        } else {
-            echo "No Requerds To show";
-        }
-        } elseif($to='items') {
-            $results = feedBack($Item, $table, $order, 'DESC', $numItem);
-            if(!empty($results)) {
-                foreach ($results as $result) {?>
-                    <ul class="list-unstyled latest-users">
-                        <li>
-                            <span class='user'>
-                                <?php echo $result['nameItem'] ?>
-                            </span>
-                            <div class="btn-dashboed">
-                                <a href="items.php?actionInItems=edit&itemID=<?php echo $result['itemID']?>"  class ='edit-item'><i class="fa fa-edit"></i>Edit</a>
-                                <a href="comments.php?actionInComments=specific_comment&itemID=<?php echo $result['itemID']?>"><i class="fa-solid fa-comment"></i> Comments</a>
-                                <?php setActivateBtn($result, 'items.php', 'actionInItems', 'approve', 'itemID', 'approve') ?>
-                            </div>
-                        </li>
-                    </ul>
-                <?php
+
+            } elseif($to='items') {
+                if(!empty($results)) {
+                    foreach ($results as $result) {
+                        ulItemStructer($result);
+                    }
+                } else {
+                    echo "No Requerd to show";
                 }
-        } else {
-            echo "No Requerd to show";
-        }
         }
     }
 
@@ -154,3 +168,5 @@
         header('index.php');
         exit();
     }
+
+    ob_end_flush();

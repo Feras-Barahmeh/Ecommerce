@@ -8,10 +8,6 @@
 // End global Declarations
 
 
-// Start Fork Fucntion
-
-// End Fork Fucntion
-
 // Start main functins
     function structerItems() {?>
         <div class="container">

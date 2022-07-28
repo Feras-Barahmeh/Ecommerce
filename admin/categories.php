@@ -277,8 +277,6 @@
                 }
             }
         }
-
-
     // End Categories Edit
 
 // End Fork (Tools fucntions) Fucntoion
@@ -573,7 +571,7 @@
             case 'delate':
                 echo '<h1 class="text-center h-edit">Delete Information</h1>';
                 echo '<div class="container">';
-                enquiryDelete('categories', 'ID');
+                enquiryDelete('categories', 'ID', getID('ID'));
                 break;
 
             case 'edit':

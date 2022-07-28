@@ -8,12 +8,6 @@
 // End Global Deffination
 
 // Start Fork Functions
-    // function getInfoUserFromDB() {
-    //     global $db; global $sessionUser;
-    //     $stmt = $db->prepare("SELECT * FROM users WHERE userName = '$sessionUser'");
-    //     $stmt->execute();
-    //     return $stmt->fetch();
-    // }
 
     function setNotApproveIcone() { ?>
             <div class="not-approve">Awaiting approval</div>
@@ -49,7 +43,9 @@
             <div class="container">
                 <div class="row container-item">
                     <?php
-                        $items = getSpecificItems('memberID', $idUSer);
+                    // ("SELECT * FROM items WHERE $to = ? ORDER BY itemID DESC")
+                        // $items = getSpecificItems('memberID', $idUSer);
+                        $items = getTable("*", 'items', ' WHERE memberID = ' . $idUSer, 'itemID', 'DESC');
                         if (!empty($items)) {
                             foreach($items as $item) {
                                     structerItemBox($item);
@@ -98,8 +94,6 @@
 // Start Main Structer
     function mainStruct() { 
         global $sessionUser;
-        //         $stmt = $db->prepare("SELECT * FROM users WHERE userName = '$sessionUser'");
-        // $info = getInfoUserFromDB();
         $info = getTable('*', 'users', 'WHERE userName = \'' . $sessionUser . '\'' , NULL, NULL, 'fetch');
         ?>
         <h1 class="text-center container"><?php echo $_SESSION['user'] ?> Profile</h1>

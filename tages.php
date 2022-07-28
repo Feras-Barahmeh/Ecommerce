@@ -16,7 +16,6 @@
             <div class="row container-item">
                 <?php
                     if(getID('nameTage', 'string')) {
-
                         ?> <h1 class="text-center"> <?php echo strtoupper((string) getID('nameTage', 'string')) ?> </h1> <?php
                         $where =    "where tage LIKE '%" . getID('nameTage', 'string') . "%'" . "AND approve = 1";
                         $items = getTable('*', 'items', $where  , 'itemID');
@@ -42,8 +41,6 @@
         </div>
     <?php
     }
-
-
 
 
 // Start Main

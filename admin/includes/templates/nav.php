@@ -30,7 +30,7 @@
                     <div class="dropdown info-user">
                         <button onclick="myFunction()" class="dropbtn">
                             <?php echo printNameSeesion()?> <i class="fa fa-caret-down" aria-hidden="true" ></i>
-                        <a href="index.php"><?php setPricterImage('admin', 'ProfilePictuer', getTable('profilePicture', 'users', 'WHERE userID =  ' . $_SESSION['userID'], null, null,'fetch')['profilePicture'])  ?> </a>
+                        <a href="index.php"><?php setPricterImage('admin', 'ProfilePictuer', getTable('profilePicture', 'users', 'WHERE userID = ' . $_SESSION['userID'], NULL, NULL,'fetch')['profilePicture']) ?> </a>
                         <div id="myDropdown" class="dropdown-content">
                             <a href="../index.php"><?php echo lang('Go To Shop') ?></a>
                             <a href="members.php?actionInMember=edit&userID=<?php echo $_SESSION['userID'] ?>"><?php echo lang('Edit Profile'); ?></a>
@@ -39,11 +39,7 @@
                         </div>
                     </div>
                 </div>
-
-
             </nav>
-
-
         </div>
     </div>
 </div>

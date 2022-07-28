@@ -28,9 +28,9 @@
 <div class="container">
     <?php 
         setLoginOrUser('user', 'username'); 
-        if(checkRegStatus('user') >= 1) {
-            // The user Not Activate
-        }
+        // if(checkRegStatus('user') >= 1) {
+        //     // The user Not Activate
+        // }
 
         /**
          * @version 1.0.0

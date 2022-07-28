@@ -25,14 +25,14 @@
             return [$comment, $status, $commID]; // must be sorted as an Enquiry.
         }
 
-        function getInfoBeforEdit() {
-            global $db;
-            // Data user Befor Update (sent to form).
-            $stmt = $db->prepare(' SELECT * FROM comments WHERE commID = ?');
-            $stmt->execute([getID('commID')]);
-            $requerd = $stmt->fetch();
-            return $requerd;
-        }
+        // function getInfoBeforEdit() {
+        //     global $db;
+        //     // Data user Befor Update (sent to form).
+        //     $stmt = $db->prepare(' SELECT * FROM comments WHERE commID = ?');
+        //     $stmt->execute([getID('commID')]);
+        //     $requerd = $stmt->fetch();
+        //     return $requerd;
+        // }
     // End Edit 
 
 
@@ -58,7 +58,8 @@
         }
 
         function setInfoInTable() {
-            $requerds = getCommentInfoFromDB();
+            // $stmt = $db->prepare(' SELECT * FROM comments WHERE commID = ?');
+            $requerds = getCommentInfoFromDB(); 
             foreach($requerds as $requerd) {?>
                 <tr>
                     <td><?php echo $requerd['commID']   ?></td>
@@ -84,14 +85,13 @@
         function prepareBeforApproveDB($to) {
             /**
              *@version 1.0.0
-            * @param to : Determenate if want use this function to delete or Approve Comment. 
-            *             (if first character 'd' this mean delete if 'a' this mean activate)
+            * @param to : Determenate if want use this function to delete or Approve Comment.  (if first character 'd' this mean delete if 'approve' this mean activate)
             */
             $commID  = getID('commID');
             $result = ItemExistOrRepeate('commID', 'comments', $commID);
 
             if ($result > 0 ) {
-                strtolower($to[0]) == 'd' ?  enquiryDeleteMember($commID) : enquiryApprove($commID);
+                strtolower($to) === 'delete' ?  enquiryDelete('comments',  'commID', $commID) : enquiryApprove($commID);
             } else {
                 redirect("<div class='alert alert-danger'> This User Not Exist </div>", 'back');
             }
@@ -106,8 +106,7 @@
 
     // Start Edit Procegers
         function editFormInfoUser() {
-            $info = getInfoBeforEdit();
-            ?>
+            $info = getTable('*', 'comments', 'WHERE commID = ' . getID('commID'), NULL, NULL, 'fetch'); ?>
             <h1 class="text-center h-edit">Edit Comment</h1>
             <div class="container container-edit-mem">
                 <form action="?actionInComments=update" method="POST" class="form-horizontal mem-edit-form">
@@ -176,16 +175,6 @@
             <?php }
     // End Manage 
 
-    // Start Delete
-        function enquiryDeleteMember($commID) {
-            global $db;
-            $stmt = $db->prepare('DELETE FROM comments WHERE commID = :commID');
-            $stmt->bindParam(':commID', $commID);
-            $stmt->execute();
-            redirect("<div class='alert alert-success'>" . $stmt->rowCount() . " Requerd Delete </div>", 'back');
-        }
-    // End Delete
-
 
     // Start Update 
         function updateInDB() {
@@ -240,7 +229,7 @@
                 echo '<h1 class="text-center h-edit">Delete  Member</h1>';
                 echo '<div class="container">';
                 if (ifTypeRequestGET()) {
-                    prepareBeforApproveDB('d');
+                    prepareBeforApproveDB('delete');
                 } else {
                     redirect("<div class='alert alert-danger'>Can\'t Enter This Bage Directry </div>", 'back');
                 }
@@ -251,7 +240,7 @@
                 echo '<h1 class="text-center h-edit">Approve Comment</h1>';
                 echo '<div class="container">';
                 if (ifTypeRequestGET()) {
-                    prepareBeforApproveDB('a');
+                    prepareBeforApproveDB('approve');
                 } else {
                     redirect("<div class='alert alert-danger'>Can\'t Enter This Bage Directry </div>", 'back');
                 }
@@ -263,7 +252,7 @@
 
             default:
             // In manage page we can => Edit | Delete | update users information.
-            structerManageDashboardComments();
+                structerManageDashboardComments();
             break;
         }
     }

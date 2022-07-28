@@ -614,12 +614,12 @@
                     else 
                         redirect( "<div class='alert alert-danger container'>" . "Can't Repate The Items" . "</div>", 'back');
                 } else {
-                        redirect("<div class='alert alert-danger container'> Can\'t enter here directry </div>", 'back');
+                        redirect("<div class='alert alert-danger container9'> Can\'t enter here directry </div>", 'back');
                 }
                 break;
 
             case 'delate':
-                enquiryDelete('items', 'itemID');
+                enquiryDelete('items', 'itemID', getID('itemID'));
                 break;
 
             case 'edit':

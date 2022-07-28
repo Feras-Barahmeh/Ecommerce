@@ -17,9 +17,6 @@
 
 
 // Start Global Function
-
-
-
     function getDataInRequest($addOrUpdat = 'update') {
         /**
          * @version  1.2
@@ -233,7 +230,7 @@
                 $result = ItemExistOrRepeate('userID', 'users', $userID);
 
             if ($result > 0 ) {
-                strtolower($to[0]) == 'delete' ? enquiryDelete('users', 'userID') : enquiryActivate($userID);
+                strtolower($to[0]) == 'delete' ? enquiryDelete('users', 'userID', getID('userID')) : enquiryActivate($userID);
             } else {
                 redirect("<div class='alert alert-danger'> This User Not Exist </div>", 'back');
             }

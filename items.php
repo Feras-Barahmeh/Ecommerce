@@ -8,11 +8,6 @@
 // End Global Deffination
 
 // Start Fork Function
-    function checkIfUserExist($count) {
-        if($count > 0 ) {
-            return true;
-        }
-    }
 
     function getSesionID() {
         $idCurentUser = $_SESSION['IDuser'];
@@ -45,7 +40,7 @@
                                             itemID=$id");
                     $stmt->execute();
 
-                if(checkIfUserExist($stmt->rowCount())) {
+                if($stmt->rowCount() > 0) {
                     // If fine this category retrun information for this category
                         return $stmt->fetch();
 
@@ -62,10 +57,10 @@
     function getInfoFromPOST() {
         if(ifTypeRequestPOST()) {
             $info = getItemFromDB();
-            $idForCurentUSer = getSesionID();
+            $idForCurentUser = getSesionID();
 
             $comment = filter_var($_POST['comment'], FILTER_UNSAFE_RAW);
-            $userID =  $idForCurentUSer['idCurentUser'];
+            $userID =  $idForCurentUser['idCurentUser'];
             $itemID =$info['itemID'];
 
             return [
@@ -234,7 +229,7 @@
         if(isset($_SESSION['user'])) {
             structAddComment($infoItem['approve']);
         } else {
-            // header("Location: login.php");
+            header("Location: login.php");
             ?>
                 <div class="container alert alert-danger">login Or Regester To Add And Read Comment <a href="login.php " class="container">Login | Signup</a></div>
             <?php

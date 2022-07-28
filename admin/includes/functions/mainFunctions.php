@@ -15,14 +15,16 @@
      * 
      * @version 1.4
      * @param typeFetch This parameter to select the type of fetch data
+     * @version 1.5
+     * @param limit select number item you want return (LIMIT nubmer)
      */
-    function getTable($filed='*', $table, $condition=NULL,  $ordered = null, $typeOrders = 'DESC', $typeFetch = 'fetchAll') {
+    function getTable($filed='*', $table, $condition=NULL,  $ordered = null, $typeOrders = 'DESC', $typeFetch = 'fetchAll', $limit = NULL) {
         global $db;
         if($ordered === null) {
-            $stmt = $db->prepare("SELECT $filed FROM $table $condition");
+            $stmt = $db->prepare("SELECT $filed FROM $table $condition $limit");
         }
         else
-            $stmt = $db->prepare("SELECT * FROM $table $condition ORDER BY $ordered $typeOrders");
+            $stmt = $db->prepare("SELECT * FROM $table $condition ORDER BY $ordered $typeOrders $limit");
         $stmt->execute();
 
         if ($typeFetch === 'fetchAll')
@@ -112,10 +114,12 @@
      * @param table The table you want delete from it
      * @param nameIDInTable The name id item in this table.
      */
-    function enquiryDelete($table, $nameIDInTable) {
+    function enquiryDelete($table, $nameIDInTable, $valueCondition) {
         global $db;
         $stmt = $db->prepare("DELETE FROM $table WHERE $nameIDInTable = ?");
-        $stmt->execute([getID($nameIDInTable)]);
+        // $stmt->execute([getID($nameIDInTable)]);
+        $stmt->execute([$valueCondition]);
+
         redirect("<div class='alert alert-success container'>" . $stmt->rowCount() . " Requerd Delete </div>", 'back');
     }
 
@@ -189,28 +193,6 @@
 
         return $result;
         // return $stmt->rowCount();
-    }
-
-
-    /**
-     * @version 1.0
-     * @todo Calculate last comment | last users Regeste | last items inserted ext..
-     * @param numItem numbers Of Items You want print it
-     * @param table chooes table you want fetch data
-     * @param order Order Show data andepend to ?
-     * @param typeOrder ASC Or Descending
-     * @param Item The items we will show
-     * @return Items You want print
-     * @version 1.2
-     * @param where 
-     */
-    function feedBack($Item='*', $table, $order, $typeOrder='DESC', $numItem = 3) {
-        global $db;
-        $stmt = $db->prepare("SELECT $Item FROM $table ORDER BY $order $typeOrder LIMIT $numItem");
-        $result = $stmt->execute();
-        $result = $stmt->fetchAll();
-
-        return $result;
     }
 
 
