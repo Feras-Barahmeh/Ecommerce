@@ -1,0 +1,35 @@
+----------------------------------------
+
+======== Analysis Project ==============
+
+----------------------------------------
+
+========== Desine Pages =================
+* I Will use eath main color: 
+    - #0000
+    - #132040
+    - #fca311
+    - #e5e5e5
+    - #264653
+    - #2a9d8e
+    - #69050f
+    - #370717
+    - var(--bs-info);
+
+-------+ Pages & Features +-------------
+// Reposetry in githup: https://github.com/ElzeroWebSchool/eCommerceCourse; // Elzero
+--------------
+* Gategores bar
+* login bar
+* index
+* show item 
+    - comments for this item
+    - add comment for this item
+* tage 
+
+
+// In dropdown minu
+
+* profile
+* add item
+* logout

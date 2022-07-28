@@ -1,0 +1,24 @@
+
+
+# Whhat is the new version
+    feature in applicaation 
+        -  user edit his item info
+        - puplic profile to user
+            - cover pituer
+            - favorite category
+            - and another fertuers
+        - set value to active user feature (depend by rank)
+        - rank user (shop)
+        - rank item
+        - Currency Exchange
+        - add cuntry to user
+        - add arabic language
+        - search member in dashbord
+        - search in webside
+        - edit chile category desine and performance
+        - whene update image delete last image
+        - edit comment
+
+    update in code
+        -   gathering all querys in (update, insert) in one function mainFunction File
+        - 

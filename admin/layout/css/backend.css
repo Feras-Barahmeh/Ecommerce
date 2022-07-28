@@ -1,0 +1,771 @@
+/* Start root edit */
+:root { /* Not: This color sorted by gradient */
+    --main-color    : #0000;
+    --secoud-color  : #132040;
+    --eath-color    : #fca311;
+    --therd-color   : #e5e5e5;
+    --fourd-color   : #264653;
+    --five-color    : #2a9d8e;
+    --six-color     : #281110;
+    --seven-color   : #2A8D9D;
+    --ninte-color   : grey;
+    --ten-color     : #24788F;
+}
+* {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #d9d9d9;
+
+}
+
+::selection {
+    background: #3f51b554;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* Start Deopdown js */
+        /* Dropdown Button */
+        .dropbtn {
+            color: var(--therd-color);
+            padding: 5px;
+            font-size: 16px;
+            border: none;
+            width: fit-content;
+            height: auto;
+            cursor: pointer;
+            z-index: 1000;
+            /* background-color: var(--bs-gray-700); */
+            background-color: inherit;
+        }
+
+        /* Dropdown button on hover & focus */
+        .dropbtn:hover, .dropbtn:focus {
+            background-color: inherit;
+        }
+
+        /* The container <div> - needed to position the dropdown content */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Dropdown Content (Hidden by Default) */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+
+        /* Links inside the dropdown */
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        /* Change color of dropdown links on hover */
+        .dropdown-content a:hover {background-color: #ddd}
+
+        /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+        .show {display:block;}
+        /* End Navegationbar */
+
+
+/* End Deopdown js */
+
+/* Start Edit And Delete Btn */
+
+.btn-ed-de-ac {
+    display: none;
+    position: absolute;
+    right: 0;
+
+    transition: width .35s ease-in-out;
+    transition-delay: 10s;
+}
+
+.latest-users-cat:hover .btn-ed-de-ac {
+    display: flex;
+    flex-direction: column;
+    right: 5px;
+    top: 3px;
+    position: relative;
+}
+
+.btn-ed-de-ac a {
+    padding: 7px 13px !important;
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 7px;
+    font-size: 12px;
+    align-items: center;
+    opacity: .6;
+}
+
+
+/* End Edit And Delete Btn */
+
+/* End root edit */
+
+
+
+/* Start Navegationbar */
+.body {
+    background-color: #132040;
+}
+
+.logo {
+    text-decoration: none;
+    color: var(--therd-color);
+    text-transform: uppercase;
+    margin-top: 5px;
+}
+
+.header {
+    position: relative;
+    width: 100%;
+    left: 0;
+    z-index: 24;
+    margin-bottom: 0;
+}
+
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    min-height: 55.4px;
+}
+.header .body .container  a:hover {
+    color: var(--eath-color);
+}
+
+
+
+
+.header .container nav {
+    flex: 1;
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+
+@media (min-width: 767px) {
+
+    .header .container nav .bars-menu {
+        display: none;
+    }
+}
+
+.header .container nav ul {
+    display: flex;
+    margin: 5px 0 0  0;
+}
+
+@media (max-width: 767px) {
+    .header .container nav ul {
+        display: none;
+    }
+
+    .header .container nav .bars-menu:hover+ul {
+        display: flex;
+        flex-direction: column;
+        top: 100%;
+        left: 0px;
+        position: absolute;
+        width: 100%;
+        background-color: rgb(0 0 0 /50%);
+        opacity: 1.5;
+    }
+
+    .header .container nav .bars-menu:hover+ul li a {
+        padding: 15px;
+        text-align: left;
+    }
+}
+
+.header .container nav ul li a {
+    text-decoration: none;
+    color: var(--therd-color);
+    display: block;
+    transition: .3s;
+    padding: 0 10px;
+    height: 100%;
+
+}
+
+
+.header .container nav .active,
+.header .container nav a:hover {
+    color: var(--therd-color);
+    border-bottom: 2px solid var(--main-color);
+    z-index: 2;
+}
+
+
+.info-user img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+ /* End Navegationbar */
+
+
+/*  End doundroub */
+
+
+/* Start index */
+.login-h {
+    color: var(--five-color);
+    text-align: center;
+    text-transform: UPPERCASE;
+}
+.login {
+    position: relative;
+    width: 300px;
+    justify-content: center;
+    margin-top: 10vh;
+}
+.form-control {
+    background-color: var(--therd-color);
+    margin-bottom: 10px;
+    padding: 7px;
+}
+.login .btn {
+    background-color: var(--eath-color);
+    border-color: var(--eath-color);
+}
+.login .btn:hover {
+    background-color: var(--five-color);
+    border-color: var(--five-color);
+}
+
+/* End index */
+
+
+/* Start Dashbord */
+
+    .home-stats .stat {
+        position: relative;
+        top: 20px;
+        border: 1px solid #CCC;
+        padding: 20px;
+        font-size: 15px;
+        border-radius: 10px;
+        margin-top: 5vh;
+    }
+
+    .home-stats .stat span {
+        display: block;
+        font-size: 50px;
+        color: var(--therd-color);
+    }
+
+    .home-stats .stat a {
+        text-decoration: none;
+        color: var(--therd-color);
+    }
+
+    .home-stats .stat a:hover {
+        color: var(--fourd-color);
+    }
+    .home-stats i {
+        position: absolute;
+        font-size: 76px;
+        left: -40px;
+        top: 10px;
+    }
+
+    .home-stats .text {
+        color: var(--therd-color);
+        position: relative;
+        left: 70px;
+    }
+
+    .home-stats .text p {
+        margin: 0;
+    }
+
+    .home-stats .st-member {
+        background-color: var(--five-color);
+        box-shadow: 6px 5px 20px var(--main-color);
+    }
+
+    .home-stats .st-pending {
+        background-color: var(--six-color);
+        box-shadow: 6px 5px 20px var(--main-color);
+    }
+
+    .home-stats .st-items {
+        background-color: var(--seven-color);
+        box-shadow: 6px 5px 20px var(--main-color);
+    }
+
+    .home-stats .st-com {
+        background-color: var(--eath-color);
+        box-shadow: 6px 5px 20px var(--main-color);
+    }
+
+    .last {
+        margin-top: 30px;
+
+    }
+
+    .panel-heading {
+        background-color: var(--therd-color);
+        margin-top: 15px;
+        padding: 10px;
+        color: var(--ninte-color);
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 10px 10px 20px var(--ninte-color);
+    }
+
+    .panel-heading .toggel-info i {
+        position: relative;
+        font-size: 30px;
+        right: -200px;
+    }
+
+    .panel-heading .toggel-info i:hover {
+        cursor: pointer;
+        color: var(--eath-color);
+        background-color: var(--eath-color);
+        display: inline-block;
+
+    }
+
+    .latest-users {
+        margin-bottom: 0px;
+        margin-top: 3px;
+        background-color: var(--therd-color);
+        z-index: -10;
+        border-radius: 20px;
+        box-shadow: 10px 10px 20px var(--ninte-color); 
+    }
+
+    .latest-users:nth-child(odd) {
+        background-color: var(--ninte-color);
+    }
+
+
+    .latest-users li {
+        color: var(--ninte-color);
+        padding: 1px 10px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+
+    }
+
+    .latest-users li:hover {
+        background-color: #ecdec7;
+        border-radius: 20px;
+    }
+
+    .latest-users li:nth-child(odd) {
+        color: black;
+    }
+
+    .latest-users li .btn {
+        display: flex;
+        position: relative;
+        padding: 3px;
+        border: none;
+        flex-direction: row;
+        font-size: 12px;
+    }
+
+    .latest-users li .btn-dashboed {
+        display: flex;
+        position: relative;
+        font-size: 12px;
+        justify-content: space-evenly;
+        width: auto;
+    }
+    .latest-users li .btn-dashboed a {
+        background-color: #F66657;
+        padding: 4px;
+        border-color: var(--five-color);
+        justify-content: space-evenly;
+        color: var(--therd-color);
+        text-decoration: none;
+        border-radius: 20px;
+        align-items: center;
+        position: relative;
+        margin-bottom: 2px;
+        display: flex;
+        width: 80px;
+        flex-direction: row;
+        margin-right: 3px;
+    }
+
+
+    .latest-users li .btn-dashboed a:hover {
+        opacity: .6;
+    }
+
+    .btn-dashboed .edit-item {
+        background-color: var(--bs-teal) !important;
+    }
+
+
+
+    .latest-users li .btn a { /* To  Laset 5 Registerd Users */
+        border-color: var(--five-color);
+        justify-content: space-evenly;
+        color: var(--therd-color);
+        text-decoration: none;
+        border-radius: 20px;
+        align-items: center;
+        position: relative;
+        margin-bottom: 2px;
+        display: flex;
+        width: 80px;
+        flex-direction: row;
+        margin-right: 3px;
+    }
+
+    .latest-users li .btn .edit  {
+        border-color: var(--therd-color);
+        background-color: var(--bs-teal);
+        padding: 4px;
+    }
+
+    .latest-users li .btn .edit:hover {
+        opacity: .6;
+    }
+
+
+    .latest-users li .btn .active {
+        color: var(--therd-color);
+    }
+    .latest-users li .btn .activ:hover {
+        opacity: .6;
+    }
+
+
+
+/* End Dashbord */
+
+
+
+
+
+
+/* Start Member */
+.container-edit-mem {
+    margin-top: 20vh;
+
+}
+.h-manage {
+    text-align: center;
+}
+h1 {
+    color: var(--five-color);
+    margin-top: 15px;
+}
+.control-label {
+    color: var(--six-color);
+}
+
+.btn-edit-mem {
+    background-color: var(--eath-color);
+    color: var(--secoud-color);
+    border-color: var(--eath-color);
+}
+.filed-mem {
+    margin: 0;
+    width: 429.99px;
+}
+
+.btn-edit-mem:hover {
+    background-color: var(--five-color);
+    border-color: var(--five-color);
+}
+
+.feild-edit-mem {
+    position: relative;
+}
+
+.feild-edit-mem label {
+    opacity: .6;
+}
+
+.error span {
+    color: red;
+    text-align: center;
+    text-transform: 50%;
+}
+.mem-edit-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: -60px;
+    position: relative;
+}
+.mem-edit-form input {
+    opacity: 0.5;
+}
+
+
+
+    /* Start Manage */
+    
+    .main-table tr:first-child td {
+        background-color: var(--five-color);
+        color: var(--fourd-color);
+    }
+
+    .main-table td {
+        background-color: var(--therd-color);
+        vertical-align: middle !important;
+    }
+    .main-table .btn {
+        padding: 3px 9px;
+
+    }
+    .btn-primary {
+        background-color: var(--eath-color);
+        border-color: var(--eath-color);
+        color: var(--secoud-color);
+    }
+    .btn-primary:hover {
+        background-color: var(--five-color);
+        border-color: var(--five-color);
+    }
+    .fa-plus {
+        vertical-align: middle;
+        padding-right: 2px;
+        font-size: 19px;
+    }
+    .pictuer-in-td {
+        width: 40px;
+        height: auto;
+        border-radius: 2px;
+    }
+    /* End Mnage */
+/* End Member */
+
+
+
+
+/* Start Categories */
+.to-add-btn {
+    display: flex;
+    justify-content: space-around;
+}
+.to-add-btn div {
+    width: 50%;
+    height: fit-content;
+    vertical-align: middle;
+    top: 4px;
+    position: relative;
+}
+.to-add-btn button {
+    border: none;
+}
+
+.panel-heading p {
+    font-weight: bold;
+    margin: 0;
+    top: 6px;
+    position: relative;
+}
+.panel-heading .sort {
+    left: 4%;
+    position: absolute;
+    height: 58px;
+    vertical-align: middle;
+    display: inline;
+    text-align: right;
+}
+@media (max-width: 767px) {
+    .panel-heading p {
+        display: none;
+    }
+    .panel-heading .sort {
+        left: -50px;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        top: 6px;
+    }
+}
+
+.panel-heading .sort span {
+    vertical-align: middle;
+    position: relative;
+    font-size: 13px;
+    left: 15px;
+    top: -3px;
+}
+.panel-heading .sort a {
+    margin-left: 30px;
+    font-size: 11px;
+    text-decoration: none;
+    color: #24788F;
+    vertical-align: middle;
+    position: relative;
+}
+
+.panel-heading .sort a i {
+    margin-right: 2px;
+}
+
+
+.latest-users-cat {
+    margin-bottom: 15px;
+}
+.panel-body-cat {
+    margin-top: 20px;
+}
+.check-vis {
+    background-color: var(--therd-color);
+    margin-bottom: 10px;
+    border-radius: 9px;
+    position: relative;
+    width: 429.99px;
+    display: flex;
+    padding: 7px;
+    opacity: 0.5;
+
+}
+.check-vis div {
+    margin-right: 30px;
+    font-weight: 600;
+}
+
+.cat {
+    width: inherit;
+}
+.name-cat {
+    text-transform: uppercase;
+    color: #413535;
+    margin-left: 85px;
+    text-align: center;
+    position: relative;
+    margin-top: 2px;
+}
+
+.p-cat {
+    color: black;
+    padding-right: 40px;
+    padding-left: 40px;
+    font-size: 18px;
+}
+
+.options {
+    display: flex;
+    justify-content: space-around;
+    margin-left: 20px;
+    opacity: 0.6;
+    margin-bottom: 3px;
+}
+.options:nth-child(odd) {
+    background-color: rgb(44, 44, 44);
+    color: var(--therd-color);
+    border-radius: 20px;
+}
+
+.global-options {
+    background-color: var(--bs-danger);
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-top: 4px;
+}
+
+    /* Start Chield Caregories */
+        .chiled {
+            display: inline-flex;
+            flex-direction: column;
+            background-color: #b8d3d7;
+            align-content: center;
+            text-align: center;
+            width: 400px;
+            border-radius: 30px;
+            margin-bottom: 15px;
+            box-shadow: 8px 7px 22px black;
+        }
+
+        .cat-chiled p {
+            width: auto;
+            height: auto;
+        }
+
+        .options-chiled {
+            display: flex;
+            justify-content: space-evenly;
+            margin: 10px;
+        }
+
+        .cat-chiled {
+            transform: translate(3px);
+        }
+
+        .cat-chiled:hover {
+            cursor: pointer;
+        }
+
+        .btn-chiled {
+            display: none;
+        }
+
+        .cat-chiled:hover .btn-chiled {
+            display: flex;
+            position: relative;
+            padding: 3px;
+            border: none;
+            flex-direction: row;
+            font-size: 12px;
+        }
+
+
+
+        .btn-chiled a {
+                padding: 2px 21px;
+                margin: auto;
+                margin-bottom: 3px;
+        }
+
+    /* End Chield Caregories */
+/* End Categories */
+
+
+
+/* Start Comments */
+.in-edit-comment {
+    margin-bottom: 150px;
+}
+/* End Comments */
