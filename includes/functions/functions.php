@@ -2,7 +2,7 @@
 
     /**
      * @version 1.0.0
-     * @todo set login|signup link Or name user
+     * @todo set login|signup link Or name user (Debend user Register or not)
      * @param nameSession name user from session.
      */
     function setLoginOrUser($nameSession, $secoundSesion) {
@@ -16,20 +16,6 @@
         }
     }
 
-
-    // /**
-    //  * @version 1.0.0
-    //  * @todo check user Statues if 1 or 0
-    //  * @param name name user  in session
-    //  * 
-    //  */
-    // function checkRegStatus($user) { 
-    //     global $db;
-    //     $stmt = $db->prepare("SELECT userName = ? FROM users WHERE regStatus = 0");
-    //     $stmt->execute([$user]);
-    //     $status = $stmt->rowCount();
-    //     return $status;
-    // }
 
 
 

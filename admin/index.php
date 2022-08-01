@@ -43,6 +43,7 @@
                 setSession();
                 if ($_SESSION['username'] == getInfoInForm()['username']) {
                     header('Location: dashboard.php');
+                    exit();
                 }
                 
             } else {

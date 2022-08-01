@@ -102,7 +102,7 @@
     }
 
     function setMaseages($donOrNot) {
-        if($donOrNot > 0 ){ header("refresh:0;");?>
+        if($donOrNot > 0 ){ ?>
                 <div class="alert alert-success container">success Add Comment</div>
             <?php
             } else { ?>

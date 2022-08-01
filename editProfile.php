@@ -36,7 +36,6 @@
             redirect('<div class="alert alert-success container text-center">Success Edit</div>', '', 4);
         } else {
             ?> <div class="alert alert-danger container text-center">Not success Edit</div> <?php
-            // header('Refrech')
         }
     }
 

@@ -182,9 +182,11 @@
                 if(checkifPermeationUser($info['user'])) {
                     setSession($info['user']);
                     header('Location: admin/dashboard.php');
+                    exit();
                 } else {
                     setSession($info['user']);
                     header('Location: index.php');
+                    exit();
                 }
             } 
             elseif($to === 'signup') {
@@ -192,9 +194,11 @@
                 if(checkifPermeationUser($info['user'])) {
                     setSession($info['user']);
                     header('Location: admin/dashboard.php');
+                    exit();
                 } else {
                     setSession($info['user']);
                     header('Location: index.php');
+                    exit();
                 }
             }
         }

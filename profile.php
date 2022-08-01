@@ -24,7 +24,6 @@
                     <?php if(!checkIfApproved($item['approve'])) setNotApproveIcone()?> <!-- auxiliary -->
                 <div class="caption">
                     <a href="items.php?itemid=<?php echo $item['itemID'] ?>"><h3><?php echo $item['nameItem']?></h3></a>
-                    <!-- <p ><?php echo $item['description'] ?></p> -->
                     <p class="date"><?php echo $item['dateAdd'] ?></p>
                 </div>
             </div>
@@ -62,13 +61,6 @@
         <?php
     }
 
-
-    // function getCommentsFromDb($commUser) {
-    //     global $db;
-    //     $stmt = $db->prepare("SELECT comment FROM comments WHERE commUserID  = $commUser LIMIT 5");
-    //     $stmt->execute();
-    //     return $stmt->fetchAll();
-    // }
 
 
     function PrintCommentsInProfile($userID) {
@@ -181,6 +173,7 @@
             mainStruct();
         } else {
             header("Location: login.php");
+            exit();
         }
         include($tpl . 'footer.php');
         ob_end_flush();
