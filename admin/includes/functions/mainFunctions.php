@@ -49,7 +49,6 @@
 
     function getID($nameID, $typeRequest='int') {
         if ($typeRequest === 'int')
-            // return isset($_GET[$nameID]) && intval($_GET[$nameID]) ?  $_GET[$nameID] : 0;
             return isset($_GET[$nameID]) && is_numeric($_GET[$nameID]) ?  intval($_GET[$nameID]) : 0;
         if ($typeRequest === 'string' || $typeRequest === 'str')
                 return isset($_GET[$nameID]) && strval($_GET[$nameID]) ?  $_GET[$nameID] : '';
@@ -59,7 +58,6 @@
     function enquiryDelete($table, $nameIDInTable, $valueCondition) {
         global $db;
         $stmt = $db->prepare("DELETE FROM $table WHERE $nameIDInTable = ?");
-        // $stmt->execute([getID($nameIDInTable)]);
         $stmt->execute([$valueCondition]);
 
         redirect("<div class='alert alert-success container'>" . $stmt->rowCount() . " Requerd Delete </div>", 'back');
@@ -79,7 +77,7 @@
 
         echo $ms;
         echo "<div class ='alert alert-info container'>You Will Redirect To $url After $sec sec</div>";
-        header("refresh:$sec;url=$direction"); // we will use refresh not index becoues wait many sec befor redirect.
+        header("refresh:$sec;url=$direction"); 
         exit();
     }
 
@@ -106,7 +104,6 @@
         $result = $stmt->fetchColumn();
 
         return $result;
-        // return $stmt->rowCount();
     }
 
 
@@ -143,10 +140,6 @@
 
     // Start Functions To Sort Item in manege Dashboard
 
-        /**
-         * @version 1.0
-         * @todo to retrun type of sort.
-         */
         function valueIsSetGET() {
             if(ifTypeRequestGET('sort', 'ASC')) {
                 return 'ASC';
@@ -157,11 +150,6 @@
             }
         }
 
-        /**
-         * @version 1.0
-         * @todo to set icone (check box) next to effective type ordaring
-         * @param to to select if you neeb this what you will using this function.
-         */
 
         function setIcone($to='ord') {
             if(strtolower($to) === 'ord') {
@@ -179,10 +167,6 @@
             }
         }
 
-        /**
-         * @version 1.0.0
-         * @todo set Label
-         */
 
         function sortForm() {?>
             <div class="sort">
@@ -195,12 +179,7 @@
     // End Functions To Sort Item in manege Dashboard
 
     // Start Command Between Items And Commants
-        /**
-         * @version 1.0
-         * @todo get speasific comment debend to get request
-         * @version 1.1
-         * @param nameIDFromGEt this to select name id from get request
-         */
+
         function getSpecificCommentInfoFromDB($nameIDFromGEt='itemID') {
             global $db;
             $stmt = $db->prepare("SELECT comments.*, users.userName
@@ -253,7 +232,6 @@
                             <?php setSpecificInfoInTable($db) ?>
                         </table>
                     </div>
-                    <!-- <a href="comments.php?actionInComments=add" class="btn btn-primary"> <i class="fa fa-plus"></i> New comment</a> -->
                 </div>
             <?php }
     // End Command Between Items And Commants
@@ -285,7 +263,6 @@
 
 
         function prepareImageName($nameImage,  $nameItem) {
-            // return $nameItem . "_" . rand(1, 100000) . "_" . $nameImage;
             return $nameItem . "_" . $nameImage; 
         }
 
@@ -300,8 +277,6 @@
             static $extentions = ['jpeg', 'jpg', 'png', 'gif'];
             if(in_array(end($extention), $extentions))  return true;
         }
-    
-
 
         function validateImage($tagNameInForm, &$ERRORS, $to = 'add') {
             $imageInfo = getImgFileInfo($tagNameInForm);
