@@ -9,6 +9,21 @@
     - SQL
     - CSS
     - JS
+
+ ## The current Features in site
+- dashbord to admins
+- create product (title | image | description | insertd by | price | category | tags .. ) 
+- profile page 
+- filter by tags
+- delete|edit product
+- delete|edit category
+- adding admins 
+- register 
+- login | logout 
+- filter products by category 
+- add comments to product 
+- shop page 
+- update profile page
    
    
 # Whats new in version two:
